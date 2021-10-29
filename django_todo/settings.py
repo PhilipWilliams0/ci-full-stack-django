@@ -32,7 +32,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-xakc=^^n748$=#xx+2)s#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME', '127.0.0.1')]
+if development:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+else:
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
